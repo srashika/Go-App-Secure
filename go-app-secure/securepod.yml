@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Pod
+metadata: 
+        name: go-app-secure
+        labels:
+                language: go
+                env: test
+spec:
+        containers:
+                - name: go-app-secure
+                  image: go-app-secure:1.0.0
+                  ports:
+                         - containerPort: 8080
+                           protocol: TCP        

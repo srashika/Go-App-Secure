@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: go-app-secure
+  labels:
+    app: go-app-secure
+    
+spec: 
+  selector:
+    matchLabels:
+      app: go-app-secure
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: go-app-secure
+        tier: service
+    spec: 
+      containers:
+      - name: go-app-secure
+        image: go-app-secure:1.0.0
+        ports:
+        - containerPort: 8080
+        env:
+        - name: PORT
+          value: "8080"     

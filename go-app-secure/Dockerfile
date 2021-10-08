@@ -1,12 +1,14 @@
 FROM golang:1.7.5-alpine
 
-ENV SOURCES /go/src/github.com/rashika/go-app/
+ENV SOURCES /go/src/github.com/rashika/go-app-secure/
 
 COPY . ${SOURCES}
 
-RUN cd ${SOURCES} && CGO_ENABLED=0 go install
+WORKDIR ${SOURCES}
+
+RUN CGO_ENABLED=0 go build -o go-app-secure
 
 ENV PORT 8080
 EXPOSE 8080
 
-ENTRYPOINT go-app
+ENTRYPOINT ./go-app-secure

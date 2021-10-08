@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Pod
+metadata: 
+        name: clientsecure
+        namespace: myns
+        labels:
+                language: go
+                env: test
+spec:
+        containers:
+                - name: clientsecure
+                  image: clientsecure:1.0.0
+        restartPolicy: Always

@@ -1,0 +1,13 @@
+replicaCount: 1
+
+image:
+  repository: go-app-secure:1.0.0
+  pullPolicy: IfNotPresent
+
+service:
+  type: NodePort
+  port: 8080
+  name: go-app-secure
+
+container: 
+  name: go-app-secure
